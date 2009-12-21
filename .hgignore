@@ -1,0 +1,8 @@
+syntax: glob
+*.pyc
+config.py
+run.sh
+chroot
+*.pid
+*.log
+*.log.*

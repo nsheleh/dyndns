@@ -1,0 +1,7 @@
+Copy config.py.example to config.py and edit.
+
+Adapt run.sh.example for yourself, and run.
+
+I use lighttpd with mod_auth and mod_ssl, so I update with:
+
+wget --post-data="name=server1" -O /dev/null -q -t 1 -T 5 "https://username:password@mydomain.co.uk/dynamic/"

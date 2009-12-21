@@ -1,0 +1,19 @@
+#!/bin/sh
+PPATH=/usr/local/dyndns
+cd $PPATH
+
+if [ "$1" == "-v" ]; then
+  ARGS1="-l - -n"
+else
+  ARGS1="-l /dev/null"
+fi
+
+ARGS2="-u dyndns -g dyndns --chroot $PPATH/chroot/ -y $PPATH/dyndns.py"
+ARGS="$ARGS1 $ARGS2"
+
+if [ "$UID" != "0" ]; then
+  sudo PYTHONPATH=$PPATH twistd $ARGS
+else
+  PYTHONPATH=$PPATH twistd $ARGS
+fi
+

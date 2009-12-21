@@ -1,0 +1,24 @@
+from twisted.names import dns
+
+PORT = 9080
+ZONE = "dynamic.mydomain.co.uk"
+
+SOA_RECORD = dns.Record_SOA(
+  mname="dynns.mydomain.co.uk"
+  rname="hostmaster.mydomain.co.uk",
+  serial=1,
+  refresh="1m",
+  retry="1m", 
+  expire="1m",
+  minimum="1m"
+)
+
+# names that can be set
+ALLOWABLE = set(["server1"])
+
+WEB_INTERFACE = "0.0.0.0"
+DNS_INTERFACE = "0.0.0.0"
+
+# optional
+# FORWARDED_FOR_HEADER = "x-forwarded-for"
+# FORWARDED_FOR_IPS = set(["127.0.0.1"])
